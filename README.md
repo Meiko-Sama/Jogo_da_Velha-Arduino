@@ -1,4 +1,4 @@
-###### 29/04/2024 - 13:33PM PT-BR Horário de Brasília.
+###### 29/04/2024 - 13:33PM PT-BR Horário de Brasília...
 
 # Jogo_da_Velha-ArduinoJust
 
