@@ -1,3 +1,5 @@
+###### 29/04/2024 - 13:33PM PT-BR Horário de Brasília.
+
 # Jogo_da_Velha-ArduinoJust
 
 # Jogo da Velha - Briefing
