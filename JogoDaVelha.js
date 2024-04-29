@@ -1,6 +1,7 @@
 ﻿function main() {
     var haVencedor;
 
+
     haVencedor = false;
 
     // Criar o tabuleiro (Matriz [3][3]) e os jogadores(Opcional). Zerar as variáveis.
@@ -9,7 +10,7 @@
     // 1 - Jogada na Posição do Jogador 1
     // 2 - Jogada na Posição do Jogador 2
     var velha;
-    var tabuleiro = createArray(9);
+    var tabuleiro = Array(9);
     var linha;
     var coluna;
 
@@ -34,9 +35,9 @@
     // Registrar/Anotar as rodadas do primeiro jogador
     velha = 1;
     do {
-        console.log(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
-        console.log(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
-        console.log(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
+        console.log(tabuleiro[0].toString() + tabuleiro[1] + tabuleiro[2]);
+        console.log(tabuleiro[3].toString() + tabuleiro[4] + tabuleiro[5]);
+        console.log(tabuleiro[6].toString() + tabuleiro[7] + tabuleiro[8]);
         jogada = "";
         console.log("Digite a posição da sua peça Jogador " + jogadorDaVez);
         jogada = window.prompt('Enter a value for jogada');
@@ -84,9 +85,9 @@
 
         // Verificar se a posição da "jogada" é valida
     } while (!haVencedor && velha <= 9);
-    console.log(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
-    console.log(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
-    console.log(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
+    console.log(tabuleiro[0].toString() + tabuleiro[1] + tabuleiro[2]);
+    console.log(tabuleiro[3].toString() + tabuleiro[4] + tabuleiro[5]);
+    console.log(tabuleiro[6].toString() + tabuleiro[7] + tabuleiro[8]);
     if (haVencedor) {
         console.log("Foi detectado um vencedor na partida");
         console.log("Os tambores e as trombetas tocam...");
@@ -102,7 +103,7 @@ function validaEntrada(entrada) {
     var retorno;
 
     retorno = false;
-    if (entrada.length() == 3) {
+    if (entrada.length == 3) {
         if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
             if (entrada.charAt(2) == "0" || entrada.charAt(2) == "1" || entrada.charAt(2) == "2") {
                 retorno = true;
