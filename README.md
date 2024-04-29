@@ -1,6 +1,8 @@
 # Jogo_da_Velha-Arduino
 Huh... Dont questioning me, really it just TIC-TAC-TOE
 
+**Autor:** Thayná Silva de Matos Carlos - Aka MeikoSama
+
 # Jogo da Velha - Briefing
  
 **↣Introdução:** O jogo da velha é um jogo que surgiu aproximadamente desde o século 14 lá no egito e continua sendo jogado até os dias de hoje, era jogado por pessoas de certa idade quando tomavam chá. É um jogo na qual consiste em dois jogadores que serão diferenciados em (O) Circulo/Bola e o outro em (X) Xis. O objetivo dos dois jogadores é completar uma linha, coluna ou diagonal tendo as 3 formas sem interferência do outro jogador, assim se tornando o ganhador.
