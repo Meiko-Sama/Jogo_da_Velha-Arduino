@@ -21,8 +21,8 @@ Assim está representado a posição da peça na qual vai jogar, caso não for v
 
 **Limitações:** As peças só podem ser colocadas no formato da matriz, se for utilizado outro método ele acaba não rodando sua posição, pedindo para que você acaba inserido de novo sua jogada de forma correta.
 
-## **Público Alvo:** O jogo é recomendado para todas as idades, sendo mais comum atualmente por crianças e adolescentes. Ele contém benefícios na qual estimula o raciocínio estratégico da pessoa. 
+**Público Alvo:** O jogo é recomendado para todas as idades, sendo mais comum atualmente por crianças e adolescentes. Ele contém benefícios na qual estimula o raciocínio estratégico da pessoa. 
 
-## **Conclusão:** É uma atividade para aprender novas funções e além disso quando todos os alunos ficavam testando fazia com que a pessoa ficasse mais interessada que seu "jogo" estivesse funcionando para testar com outra pessoa. Uma forma de descontrair juntando a parte criativa e lógica em uma atividade só :D
+**Conclusão:** É uma atividade para aprender novas funções e além disso quando todos os alunos ficavam testando fazia com que a pessoa ficasse mais interessada que seu "jogo" estivesse funcionando para testar com outra pessoa. Uma forma de descontrair juntando a parte criativa e lógica em uma atividade só :D
 
-## yemen ###bu
+###### YEEPI 
