@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="I1HM"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-18 12:44:56 "/>
+        <attribute name="created" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMTg7IjEwOjAwOjIzICI7MjM1OQ=="/>
+        <attribute name="edited" value="STFITTtFQ0U0MzZTRU5BSVhYOzIwMjQtMDQtMTg7IjEyOjQ0OjU2ICI7MTsyNDgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Criar o tabuleiro (Matriz [3][3]) e os jogadores(Opcional). Zerar as vari&#225;veis. &#13;&#10;&#13;&#10;0 - Posi&#231;&#227;o Vazia&#13;&#10;1 - Jogada na Posi&#231;&#227;o do Jogador 1 &#13;&#10;2 - Jogada na Posi&#231;&#227;o do Jogador 2 "/>
+            <declare name="tabuleiro" type="Integer" array="True" size="9"/>
+            <comment text="Limpar/zerar o tabuleiro"/>
+            <declare name="indice" type="Integer" array="False" size=""/>
+            <for variable="indice" start="0" end="8" direction="inc" step="1">
+                <assign variable="tabuleiro[indice]" expression="0"/>
+            </for>
+            <declare name="jogador1" type="String" array="False" size=""/>
+            <assign variable="jogador1" expression="&quot;Jogador 1&quot;"/>
+            <declare name="jogador2" type="String" array="False" size=""/>
+            <assign variable="jogador2" expression="&quot;Jogador 2&quot;"/>
+            <declare name="Jogada" type="String" array="False" size=""/>
+            <comment text="Iniciar e defenir quem joga primeiro"/>
+            <comment text="Registrar/Anotar as rodadas do primeiro jogador"/>
+            <assign variable="Jogada" expression="&quot;&quot;"/>
+            <input variable="Jogada"/>
+            <output expression="&quot;Digite a posi&#231;&#227;o da sua pe&#231;a JOGADOR 1&quot;" newline="True"/>
+            <comment text="Verificar se a posi&#231;&#227;o da &quot;jogada&quot; &#233; valida"/>
+            <comment text="Converter a jogada texto em dois inteiro, linha e coluna"/>
+            <if expression="tabuleiro[linha][coluna] == 0">
+                <then>
+                    <assign variable="tabuleiro[linha][coluna]" expression="1"/>
+                </then>
+                <else>
+                    <comment text="Informar ao JOGADOR 1 que a posi&#231;&#227;o &#233; invalida/est&#225; preenchida. Ele precisa informar outra posi&#231;&#227;o."/>
+                </else>
+            </if>
+            <comment text="Verificar o tabuleiro, se alguem ganhou ou empatou, se sim finaliza o jogo"/>
+            <comment text="Verificar jogada vencedoras nas linhas."/>
+            <comment text="Verificar jogada vencedoras nas colunas."/>
+            <comment text="Verificar jogada vencedoras nas diagonais."/>
+            <comment text="Se n&#227;o houver vencedor ou empate, registrar a jogada do segundo jogador"/>
+            <assign variable="Jogada" expression="&quot;&quot;"/>
+            <input variable="Jogada"/>
+            <output expression="&quot;Digite a posi&#231;&#227;o da sua pe&#231;a JOGADOR 2&quot;" newline="True"/>
+            <comment text="Verificar o tabuleiro, se alguem ganhou ou empatou, se sim finaliza o jogo"/>
+        </body>
+    </function>
+</flowgorithm>
