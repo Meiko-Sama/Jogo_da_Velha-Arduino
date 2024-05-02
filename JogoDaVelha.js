@@ -1,24 +1,22 @@
 ﻿function main() {
-    var haVencedor;
-
-
-    haVencedor = false;
-
-    // Criar o tabuleiro (Matriz [3][3]) e os jogadores(Opcional). Zerar as variáveis.
+    // Criar o tabuleiro e jogadores, zerar as variáveis.
     // 
-    // 0 - Posição Vazia
-    // 1 - Jogada na Posição do Jogador 1
-    // 2 - Jogada na Posição do Jogador 2
+    // 0: Posição vazia
+    // 1: jogada na Posição do jogador 1
+    // 2: jogada na Posição do jogador 2
     var velha;
-    var tabuleiro = Array(9);
     var linha;
     var coluna;
+    var haVencedor;
+
+    haVencedor = false;
+    var tabuleiro = Array(9);
 
     // Limpar/zerar o tabuleiro
-    var indice;
+    var index;
 
-    for (indice = 0; indice <= 8; indice++) {
-        tabuleiro[indice] = 0;
+    for (index = 0; index <= 8; index++) {
+        tabuleiro[index] = 0;
     }
     var jogador1;
 
@@ -27,35 +25,49 @@
 
     jogador2 = "Jogador 2";
     var jogada;
+
+    // Iniciar o jogo, definir quem joga primeiro
     var jogadorDaVez;
 
     jogadorDaVez = 1;
 
-    // Iniciar e defenir quem joga primeiro
-    // Registrar/Anotar as rodadas do primeiro jogador
+    // Anotar/Registrar a jogada, do primeiro jogador
     velha = 1;
     do {
-        console.log(tabuleiro[0].toString() + tabuleiro[1] + tabuleiro[2]);
-        console.log(tabuleiro[3].toString() + tabuleiro[4] + tabuleiro[5]);
-        console.log(tabuleiro[6].toString() + tabuleiro[7] + tabuleiro[8]);
+        console.log(tabuleiro[0].ToString() + tabuleiro[1] + tabuleiro[2]);
+        console.log(tabuleiro[3].ToString() + tabuleiro[4] + tabuleiro[5]);
+        console.log(tabuleiro[6].ToString() + tabuleiro[7] + tabuleiro[8]);
         jogada = "";
-        console.log("Digite a posição da sua peça Jogador " + jogadorDaVez);
+        console.log("Digite a posição da sua peça JOGADOR " + jogadorDaVez);
         jogada = window.prompt('Enter a value for jogada');
-        if (validaEntrada(jogada)) {
+        if (validaPosicao(jogada)) {
+
+            // Converter a jogada texto em dois inteiros linha e coluna.
+            // Simula a função Serial.parseInt() do Arduino
             linha = parseInt(jogada.charAt(0));
+
+            // CORRIGIR O ERRO DE DIGITAÇÃO
             coluna = parseInt(jogada.charAt(2));
-            console.log("Linha: " + linha + " Coluna: " + coluna);
-            if (linha < 3 && coluna < 3) {
+            console.log("Linha: " + linha + "; Coluna: " + coluna);
+
+            // Verificar se a posição 'jogada' é valida
+            if (tabuleiro[3 * linha + coluna] == 0) {
                 tabuleiro[3 * linha + coluna] = jogadorDaVez;
                 if (tabuleiro[0] == jogadorDaVez && tabuleiro[1] == jogadorDaVez && tabuleiro[2] == jogadorDaVez || tabuleiro[3] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[5] == jogadorDaVez || tabuleiro[6] == jogadorDaVez && tabuleiro[7] == jogadorDaVez && tabuleiro[8] == jogadorDaVez) {
                     haVencedor = true;
                 } else {
+
+                    // Verificar a jogada vencedora nas colunas.
                     if (tabuleiro[0] == jogadorDaVez && tabuleiro[3] == jogadorDaVez && tabuleiro[6] == jogadorDaVez || tabuleiro[1] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[7] == jogadorDaVez || tabuleiro[2] == jogadorDaVez && tabuleiro[5] == jogadorDaVez && tabuleiro[8] == jogadorDaVez) {
                         haVencedor = true;
                     } else {
+
+                        // Verificar a jogada vencedora nas diagonais.
                         if (tabuleiro[0] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[8] == jogadorDaVez || tabuleiro[2] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[6] == jogadorDaVez) {
                             haVencedor = true;
                         } else {
+
+                            // Trocar o jogador
                             if (jogadorDaVez == 1) {
                                 jogadorDaVez = 2;
                             } else {
@@ -65,54 +77,52 @@
                     }
                 }
                 velha = velha + 1;
-
-                // Converter a jogada texto em dois inteiro, linha e coluna
-                if (tabuleiro[3 * linha + coluna] == 0) {
-                } else {
-                    console.log("Posição inválida/ocupada, jogue novamente");
-
-                    // Informar ao JOGADOR 1 que a posição é invalida/está preenchida. Ele precisa informar outra posição.
-                }
-
-                // Verificar o tabuleiro, se alguem ganhou ou empatou, se sim finaliza o jogo
-                // Verificar jogada vencedoras nas linhas.
             } else {
-                console.log("Indice invalido");
+                console.log("Posição ocupada, jogue novamente !!!");
+
+                // Informar ao Jogador 1 que a posição está preenchida, é inválida e ele precisa informar um posição válida.
             }
         } else {
-            console.log("Indice invalido");
+            console.log("Jogada inválida !!!");
         }
 
-        // Verificar se a posição da "jogada" é valida
+        // Verificar a jogada vencedora nas linhas.
     } while (!haVencedor && velha <= 9);
+
+    // Verificar o tabuleiro, se houve ganhador ou empate, finalizar o jogo.
+    if (haVencedor) {
+        console.log("Parabéns pela a vitória, jogador " + jogadorDaVez);
+    } else {
+        console.log("Deu VELHA!!!");
+    }
     console.log(tabuleiro[0].toString() + tabuleiro[1] + tabuleiro[2]);
     console.log(tabuleiro[3].toString() + tabuleiro[4] + tabuleiro[5]);
     console.log(tabuleiro[6].toString() + tabuleiro[7] + tabuleiro[8]);
-    if (haVencedor) {
-        console.log("Foi detectado um vencedor na partida");
-        console.log("Os tambores e as trombetas tocam...");
-        console.log("Parabens pela vitoria Jogador " + jogadorDaVez);
-    } else {
-        console.log("O jogo deu velha/empate, jogue de novo para descobrir quem podera ganhar a proxima partida");
-    }
-
-    // Isso é algo '-'
 }
 
-function validaEntrada(entrada) {
-    var retorno;
+function validaPosicao(entrada) {
+    // Função para validar a entrada da jogada por meio de texto, o formato deve ser:
+    // Primeiro caracter: 0 ou 1 ou 2
+    // Segundo caracter: qualquer um
+    // Terceiro caracter: 0 ou 1 ou 2
+    var entradaValida;
 
-    retorno = false;
+    entradaValida = false;
+
+    // A entra da jogadanão pode ter mais que 3 caracteres de comprimento.
     if (entrada.length == 3) {
+
+        // Verifica o primeiro caracter se há somente caracteres válidos (0,1,2).
         if (entrada.charAt(0) == "0" || entrada.charAt(0) == "1" || entrada.charAt(0) == "2") {
+
+            // Verifica o terceiro caracter se há somente caracteres válidos (0,1,2).
             if (entrada.charAt(2) == "0" || entrada.charAt(2) == "1" || entrada.charAt(2) == "2") {
-                retorno = true;
+
+                // Retorna verdadeiro se a entrada da jogada possui os caracteres e comprimentos válidos.
+                entradaValida = true;
             }
         }
     }
     
-    return retorno;
-}
-
-function validaTabuleiro() {
+    return entradaValida;
 }
