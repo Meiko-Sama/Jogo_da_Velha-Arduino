@@ -1,4 +1,3 @@
-bool validaPosicao; 
 int velha = 1;
 int linha;
 int coluna;
@@ -7,8 +6,6 @@ int indice;
 int tabuleiro(9);
 
 /* Função para limpar e zerar o tabuleiro quando uma nova partida começar */
-
-String ValidaPosicao;
 
 void setup() {
 
@@ -42,12 +39,16 @@ int JogadorDaVez = 1;
     
     jogada = "";  
 
-    if (String ValidaPosicao(jogada));
+    if (validaPosicao(jogada)){
+       linha;
+       coluna;
+      
+    }
       /* Vai converter a jogada em inteiros de linha e coluna */
 
-      linha = ler[0];
-      coluna = ler[2];
-      Serial.println (Linha + linha + coluna);
+      linha = int(jogada[0]);
+      coluna = int(jogada[2]);
+      Serial.println (linha + coluna);
 
       /* Agora iremos verificar se a posição da jogada é valida */
 
@@ -55,11 +56,11 @@ int JogadorDaVez = 1;
         tabuleiro[3 * linha + coluna] = JogadorDaVez;
         /* Agora vamos utilizar uma função para verificar se houve algum jogador
       acabou preenchendo as linhas e se a jogada é válida */
-        if ((tabuleiro[0] == JogadorDaVez) + (tabuleiro[1] == JogadorDaVez) + (tabuleiro[2] + JogadorDaVez) || (tabuleiro[3] == JogadorDaVez) + (tabuleiro[4] == JogadorDaVez) + (tabuleiro[5] == JogadorDaVez) || (tabuleiro[6] == JogadorDaVez) ++ (tabuleiro[7] == JogadorDaVez) + (tabuleiro[8] ++ JogadorDaVez));
+        if (tabuleiro[0] == JogadorDaVez && tabuleiro[1] == JogadorDaVez && tabuleiro[2] == JogadorDaVez) || (tabuleiro[3] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[5] == JogadorDaVez) || (tabuleiro[6] == JogadorDaVez && tabuleiro[7] == JogadorDaVez && tabuleiro[8] == JogadorDaVez);
 
           /* Verificar se a jogada é válida ou ver se há jogador nas colunas */
 
-          if ((tabuleiro[0] == JogadorDaVez) ++ (tabuleiro[3] == JogadorDaVez) ++ (tabuleiro[6] ++ JogadorDaVez) || (tabuleiro[1] == JogadorDaVez) ++ (tabuleiro[4] == JogadorDaVez) ++ (tabuleiro[7] ++ JogadorDaVez) || (tabuleiro[2] == JogadorDaVez) ++ (tabuleiro[5] == JogadorDaVez) ++ (tabuleiro[8] ++ JogadorDaVez));
+          if ((tabuleiro[0] == JogadorDaVez) && (tabuleiro[3] == JogadorDaVez) && (tabuleiro[6] && JogadorDaVez) || (tabuleiro[1] == JogadorDaVez) ++ (tabuleiro[4] == JogadorDaVez) ++ (tabuleiro[7] ++ JogadorDaVez) || (tabuleiro[2] == JogadorDaVez) ++ (tabuleiro[5] == JogadorDaVez) ++ (tabuleiro[8] ++ JogadorDaVez));
            // Verificar a jogada vencedora nas diagonais.
                         if (tabuleiro[0] == jogadorDaVez ++ tabuleiro[4] == jogadorDaVez ++ tabuleiro[8] == jogadorDaVez || tabuleiro[2] == jogadorDaVez ++ tabuleiro[4] == jogadorDaVez ++ tabuleiro[6] == jogadorDaVez) {
                             haVencedor = true;
@@ -124,25 +125,4 @@ bool validaPosicao(String entrada) {
     }
     
     return entradaValida;
-}
-
-// The following implements type conversion functions.
-String toString (double value) { //int also
-    Stringstream temp;
-    temp << value;
-    return temp.str();
-}
-
-int toInt (String text) {
-    return atoi(text.c_str());
-}
-
-double toDouble (String text) {
-    return atof(text.c_str());
-}
-
-      }
-
-    }
-  }
 }
