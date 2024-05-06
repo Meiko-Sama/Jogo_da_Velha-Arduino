@@ -107,7 +107,7 @@ void loop() {
    // Verificar o tabuleiro, se houve ganhador ou empate, finalizar o jogo.
    if (!haVencedor) { 
    Serial.println("Parabéns pela a vitória, jogador ");
-   } else if {
+   } else {
    Serial.println("Deu VELHA!!!");
    }
    Serial.println(tabuleiro[0] && tabuleiro[1] && tabuleiro[2]);
