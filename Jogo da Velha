@@ -5,31 +5,10 @@ int velha = 1;
 int linha;
 int coluna;
 bool haVencedor = false;
-
-/* Declarando o tabuleiro em formato de Matriz */
-
+int indice;
 int tabuleiro(9);
 
 /* Função para limpar e zerar o tabuleiro quando uma nova partida começar */
-
-int indice;
-
-/* Agora vamos utilizar o "para" o nosso tabuleiro de Matriz rodar */
-
-  for (indice = 0; indice <= 8; indice++) {
-  tabuleiro[indice] = 0;
-}
-
-String jogada;
-
-/* Inicialização do jogo, agora vai ser declarado qual vai ser o jogador que
-jogará primeiro */
-
-int JogadorDaVez = 1;
-
-/* Apresentação do nosso tabuleiro visível */
-
-
 
 void setup() {
 
@@ -40,12 +19,26 @@ void setup() {
 void loop() {
 
   do {
-    Serial.println(tabuleiro[0] tabuleiro[1] tabuleiro[2]);
-    Serial.println(tabuleiro[3] tabuleiro[4] tabuleiro[5]);
-    Serial.println(tabuleiro[6] tabuleiro[7] tabuleiro[8]);
+    
+    /* Agora vamos utilizar o "para" o nosso tabuleiro de Matriz rodar */
+   for (indice = 0; indice <= 8; indice++) {
+   indice = 0;
+}
 
-    jogada = ''                                                                                                                                                                                                      Serial.print("Digite a posição da sua peça JOGADOR " & Jogador da Vez);
-    String ler = Serial.readString();
+String jogada;
+
+/* Inicialização do jogo, agora vai ser declarado qual vai ser o jogador que
+jogará primeiro */
+    
+int JogadorDaVez = 1;
+
+/* Apresentação do nosso tabuleiro visível */
+
+for ( byte 
+  for ( byte
+    for ( byte 
+    
+    jogada = "";  
 
     if (validaPosicao(jogada)) {
       /* Vai converter a jogada em inteiros de linha e coluna */
@@ -60,7 +53,7 @@ void loop() {
         tabuleiro[3 * linha + coluna] = JogadorDaVez;
         /* Agora vamos utilizar uma função para verificar se houve algum jogador
       acabou preenchendo as linhas e se a jogada é válida */
-        if ((tabuleiro[0] == JogadorDaVez) + (tabuleiro[1] == JogadorDaVez) + (tabuleiro[2] + JogadorDaVez) || (tabuleiro[3] == JogadorDaVez) + (tabuleiro[4] == JogadorDaVez) + (tabuleiro[5] == JogadorDaVez) || (tabuleiro[6] == JogadorDaVez) ++ (tabuleiro[7] == JogadorDaVez) + (tabuleiro[8] && JogadorDaVez));
+        if ((tabuleiro[0] == JogadorDaVez) ++ (tabuleiro[1] == JogadorDaVez) ++ (tabuleiro[2] ++ JogadorDaVez) || (tabuleiro[3] == JogadorDaVez) ++ (tabuleiro[4] == JogadorDaVez) ++ (tabuleiro[5] ++ JogadorDaVez) || (tabuleiro[6] == JogadorDaVez) ++ (tabuleiro[7] == JogadorDaVez) ++ (tabuleiro[8] ++ JogadorDaVez));
 
           /* Verificar se a jogada é válida ou ver se há jogador nas colunas */
 
