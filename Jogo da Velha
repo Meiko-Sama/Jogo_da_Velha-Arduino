@@ -22,10 +22,10 @@ bool validaPosicao(String entrada) {
   if (entrada.length() == 3) {
 
     // Verifica o primeiro caracter se há somente caracteres válidos (0,1,2).
-    if (entrada[0] == "0" || entrada[0] == "1" || entrada[0] == "2") {
+    if (entrada[0] == '0' || entrada[0] == '1' || entrada[0] == '2') {
 
       // Verifica o terceiro caracter se há somente caracteres válidos (0,1,2).
-      if (entrada[2] == "0" || entrada[2] == "1" || entrada[2] == "2") {
+      if (entrada[2] == '0' || entrada[2] == '1' || entrada[2] == '2') {
 
         // Retorna verdadeiro se a entrada da jogada possui os caracteres e comprimentos válidos.
         entradaValida = true;
@@ -48,9 +48,15 @@ void setup() {
 void loop() {
 
   do {
-    Serial.println(tabuleiro[0] || tabuleiro[1] || tabuleiro[2]);
-    Serial.println(tabuleiro[3] || tabuleiro[4] || tabuleiro[5]);
-    Serial.println(tabuleiro[6] || tabuleiro[7] || tabuleiro[8]);
+    Serial.print(tabuleiro[0]);  
+    Serial.print(tabuleiro[1]);             
+    Serial.println(tabuleiro[2]);
+    Serial.print(tabuleiro[3]);
+    Serial.print(tabuleiro[4]); 
+    Serial.println(tabuleiro[5]);
+    Serial.print(tabuleiro[6]); 
+    Serial.print(tabuleiro[7]);
+    Serial.println(tabuleiro[8]);
     jogada = "";
     Serial.println("Digite a posição da sua peça Jogador" + String(JogadorDaVez));
     while (!Serial.available())
@@ -59,12 +65,12 @@ void loop() {
     if (validaPosicao(jogada)) {
       linha = jogada[0] - '0';
       coluna = jogada[2] - '0';
-      linha = int(jogada[0]);
-      coluna = int(jogada[2]);
-      Serial.println("Linha: ");
-      Serial.print(linha);
-      Serial.println("Coluna: ");
-      Serial.print(coluna);
+      //linha = int(jogada[0]);
+      //coluna = int(jogada[2]);
+      Serial.print("Linha: ");
+      Serial.println(linha);
+      Serial.print("Coluna: ");
+      Serial.println(coluna);
     }
 
 
