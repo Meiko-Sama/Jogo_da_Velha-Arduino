@@ -6,9 +6,9 @@ String jogador1 = "Jogador 1";
 String jogador2 = "Jogador 2";
 String jogada;
 int tabuleiro[9];
-int jogadorDaVez = 1;
+int JogadorDaVez = 1;
 // Limpar/zerar o tabuleiro
-int index;
+int indice;
 bool validaPosicao(String entrada) {
   // Função para validar a entrada da jogada por meio de texto, o formato deve ser:
   // Primeiro caracter: 0 ou 1 ou 2
@@ -38,8 +38,8 @@ bool validaPosicao(String entrada) {
 
 void setup() {
   Serial.begin(115200);
-  for (index = 0; index <= 8; index++) {
-    tabuleiro[index] = 0;
+  for (indice = 0; indice <= 8; indice++) {
+    tabuleiro[indice] = 0;
   }
 }
 void loop() {
@@ -61,7 +61,8 @@ void loop() {
     Serial.println(tabuleiro[8]);
 
     jogada = "";
-    Serial.println("Digite posição da sua peça JOGADOR ") + jogadorDaVez;
+    Serial.print("Digite posição da sua peça Jogador ");
+    Serial.println(JogadorDaVez);
     while (!Serial.available())
       ;
     jogada = Serial.readString();
@@ -79,26 +80,26 @@ void loop() {
 
       // Verificar se a posição 'jogada' é valida
       if (tabuleiro[3 * linha + coluna] == 0) {
-        tabuleiro[3 * linha + coluna] = jogadorDaVez;
-        if (tabuleiro[0] == jogadorDaVez && tabuleiro[1] == jogadorDaVez && tabuleiro[2] == jogadorDaVez || tabuleiro[3] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[5] == jogadorDaVez || tabuleiro[6] == jogadorDaVez && tabuleiro[7] == jogadorDaVez && tabuleiro[8] == jogadorDaVez) {
+        tabuleiro[3 * linha + coluna] = JogadorDaVez;
+        if (tabuleiro[0] == JogadorDaVez && tabuleiro[1] == JogadorDaVez && tabuleiro[2] == JogadorDaVez || tabuleiro[3] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[5] == JogadorDaVez || tabuleiro[6] == JogadorDaVez && tabuleiro[7] == JogadorDaVez && tabuleiro[8] == JogadorDaVez) {
           haVencedor = true;
         } else {
 
           // Verificar a jogada vencedora nas colunas.
-          if (tabuleiro[0] == jogadorDaVez && tabuleiro[3] == jogadorDaVez && tabuleiro[6] == jogadorDaVez || tabuleiro[1] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[7] == jogadorDaVez || tabuleiro[2] == jogadorDaVez && tabuleiro[5] == jogadorDaVez && tabuleiro[8] == jogadorDaVez) {
+          if (tabuleiro[0] == JogadorDaVez && tabuleiro[3] == JogadorDaVez && tabuleiro[6] == JogadorDaVez || tabuleiro[1] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[7] == JogadorDaVez || tabuleiro[2] == JogadorDaVez && tabuleiro[5] == JogadorDaVez && tabuleiro[8] == JogadorDaVez) {
             haVencedor = true;
           } else {
 
             // Verificar a jogada vencedora nas diagonais.
-            if (tabuleiro[0] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[8] == jogadorDaVez || tabuleiro[2] == jogadorDaVez && tabuleiro[4] == jogadorDaVez && tabuleiro[6] == jogadorDaVez) {
+            if (tabuleiro[0] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[8] == JogadorDaVez || tabuleiro[2] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[6] == JogadorDaVez) {
               haVencedor = true;
             } else {
 
               // Trocar o jogador
-              if (jogadorDaVez == 1) {
-                jogadorDaVez = 2;
+              if (JogadorDaVez == 1) {
+                JogadorDaVez = 2;
               } else {
-                jogadorDaVez = 1;
+                JogadorDaVez = 1;
               }
             }
           }
@@ -119,9 +120,9 @@ void loop() {
   // Verificar o tabuleiro, se houve ganhador ou empate, finalizar o jogo.
   if (haVencedor) {
     Serial.print("Parabens pela a vitória, jogador ");
-    Serial.println(jogadorDaVez);
+    Serial.println(JogadorDaVez);
   } else {
-    Serial.println("Deu VELHA!!!");
+    Serial.println("Deu empate/velha!");
   }
   Serial.print(tabuleiro[0]);
   Serial.print(tabuleiro[1]);
@@ -132,10 +133,13 @@ void loop() {
   Serial.print(tabuleiro[6]);
   Serial.print(tabuleiro[7]);
   Serial.println(tabuleiro[8]);
-  for (index = 0; index <= 8; index++) {
-    tabuleiro[index]=0;
+  for (indice = 0; indice <= 8; indice++) {
+    tabuleiro[indice]=0;
     delay(1000);
     tabuleiro[9]= 0;
      
   }
 }
+
+
+//Abluble
