@@ -48,27 +48,28 @@ void setup() {
 void loop() {
 
   do {
-    Serial.print(tabuleiro[0]);  
-    Serial.print(tabuleiro[1]);             
+    Serial.print(tabuleiro[0]);
+    Serial.print(tabuleiro[1]);
     Serial.println(tabuleiro[2]);
     Serial.print(tabuleiro[3]);
-    Serial.print(tabuleiro[4]); 
+    Serial.print(tabuleiro[4]);
     Serial.println(tabuleiro[5]);
-    Serial.print(tabuleiro[6]); 
+    Serial.print(tabuleiro[6]);
     Serial.print(tabuleiro[7]);
     Serial.println(tabuleiro[8]);
     jogada = "";
     Serial.println("Digite a posição da sua peça Jogador" + String(JogadorDaVez));
-    while (!Serial.available());
- 
+    while (!Serial.available())
+      ;
+
     jogada = Serial.readString();
     if (validaPosicao(jogada)) {
       linha = jogada[0] - '0';
       coluna = jogada[2] - '0';
-      
-//linha = int(jogada[0]);
-//coluna = int(jogada[2]);
-      
+
+      //linha = int(jogada[0]);
+      //coluna = int(jogada[2]);
+
       Serial.print("Linha: ");
       Serial.println(linha);
       Serial.print("Coluna: ");
@@ -79,56 +80,51 @@ void loop() {
     if (tabuleiro[3 * linha + coluna] == 0) {
 
       tabuleiro[3 * linha + coluna] = JogadorDaVez;
+      if (tabuleiro[0] == JogadorDaVez && tabuleiro[1] == JogadorDaVez && tabuleiro[2] == JogadorDaVez || tabuleiro[3] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[5] == JogadorDaVez || tabuleiro[6] == JogadorDaVez && tabuleiro[7] == JogadorDaVez && tabuleiro[8] == JogadorDaVez) {
+        haVencedor = true;
       } else {
 
-      if (tabuleiro[0] == JogadorDaVez && tabuleiro[1] == JogadorDaVez && tabuleiro[2] == JogadorDaVez || tabuleiro[3] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[5] == JogadorDaVez || tabuleiro[6] == JogadorDaVez && tabuleiro[7] == JogadorDaVez && tabuleiro[8] == JogadorDaVez) {
-      haVencedor = true;
-      } else {
-         
+        //Verificar a jogada vencedoras nas colunas.
         if (tabuleiro[0] == JogadorDaVez && tabuleiro[3] == JogadorDaVez && tabuleiro[6] == JogadorDaVez || tabuleiro[1] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[7] == JogadorDaVez || tabuleiro[2] == JogadorDaVez && tabuleiro[5] == JogadorDaVez && tabuleiro[8] == JogadorDaVez) {
-            haVencedor = true;
-          
+          haVencedor = true;
+        } else {
+          //Verificar jogador na diagonias.
           if (tabuleiro[0] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[8] == JogadorDaVez || tabuleiro[2] == JogadorDaVez && tabuleiro[4] == JogadorDaVez && tabuleiro[6] == JogadorDaVez) {
             haVencedor = true;
-            } else {
-
-            if (JogadorDaVez == 2) {
-              JogadorDaVez = 1;
-              } else {
+          } else {
+            //trocar jogador
+            if (JogadorDaVez == 1) {
               JogadorDaVez = 2;
-              Serial.println ("faça sua jogada" + JogadorDaVez);
+            } else {
+              JogadorDaVez = 1;
             }
           }
         }
+        velha = velha + 1;
+         } else {
+        Serial.println("Jogada invalida!!");
       }
-      velha = velha + 1;
-     
-      Serial.println("Posição ocupada, jogue novamente !!!");
-
-      // Informar ao Jogador 1 que a posição está preenchida, é inválida e ele precisa informar um posição válida.
-     
-  } }
-
-  // Verificar a jogada vencedora nas linhas.
-
-
-  while (!haVencedor && velha <= 8);
-
-   // Verificar o tabuleiro, se houve ganhador ou empate, finalizar o jogo.
-   if (!haVencedor) { 
-   Serial.println("Parabéns pela a vitória, jogador ");
-   } else {
-   Serial.println("Deu VELHA!!!");
-   }
-   Serial.print(tabuleiro[0]);
-   Serial.print(tabuleiro[1]);
-   Serial.println(tabuleiro[2]);
-   Serial.print(tabuleiro[3]);
-   Serial.print(tabuleiro[4]); 
-   Serial.println(tabuleiro[5]);
-   Serial.print(tabuleiro[6]);
-   Serial.print(tabuleiro[7]); 
-   Serial.println(tabuleiro[8]);
-    //return 0;
-} 
+      //Verificar Jogada Vencedor na Linha
+      while (!haVencedor && velha <= 9);
+        
+      if (haVencedor) {
+        Serial.println("Parabens pela vitoria " + JogadorDaVez);
+      } else {
+        Serial.println("Deu Velha!!");
+      }
+      Serial.print(tabuleiro[0]);
+      Serial.print(tabuleiro[1]);
+      Serial.println(tabuleiro[2]);
+      Serial.print(tabuleiro[3]);
+      Serial.print(tabuleiro[4]);
+      Serial.println(tabuleiro[5]);
+      Serial.print(tabuleiro[6]);
+      Serial.print(tabuleiro[7]);
+      Serial.println(tabuleiro[8]);
+      for (indice = 0; <= 9; indice++) {
+        tabuleiro[indice] = 0;
+        delay(1000);
+        tabuleiro[9] = 0;
+      }
+    }
 
